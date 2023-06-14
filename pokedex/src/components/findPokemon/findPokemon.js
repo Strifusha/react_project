@@ -1,3 +1,6 @@
+import React from "react";
+import './findPokemon.css';
+
 let allPokemonsList = [];
 const searchInput = document.querySelector('.reach-panel');
 
@@ -14,3 +17,5 @@ function findPokemon(){
 }
 
 searchInput.addEventListener('input', findPokemon);
+
+export default findPokemon;

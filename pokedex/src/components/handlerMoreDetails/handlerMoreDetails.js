@@ -1,4 +1,7 @@
-function handlerMoreDetaisl() {
+import React from 'react';
+import './handlerMoreDetails.css';
+
+function handlerMoreDetails() {
     const getGridItems = document.querySelectorAll('.grid-item');
 
     getGridItems.forEach(item => {
@@ -23,3 +26,4 @@ function showPokemonDetails(){
                           </div>`
 }
 
+export default handlerMoreDetails;

@@ -1,3 +1,6 @@
+import React from "react";
+import './getPokemons.css';
+
 getPokemons();
 
 function getPokemons(offset = 0){
@@ -79,3 +82,5 @@ const renderPokemonStats = stats => {
 
      return statsHtml;
 }
+
+export default getPokemons;

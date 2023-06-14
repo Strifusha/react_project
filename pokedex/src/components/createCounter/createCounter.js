@@ -1,3 +1,6 @@
+import React from 'react';
+import './createCounter.css';
+
 let counter = createCounter();
 
 const handleLoadBtn = document.getElementById('loadBtn');
@@ -11,3 +14,5 @@ function createCounter(){
 } 
 
 handleLoadBtn.addEventListener('click', () => getPokemons(counter()));
+
+export default createCounter;
