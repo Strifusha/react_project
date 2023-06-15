@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import handlerMoreDetails from './components/handlerMoreDetails/handlerMoreDetails';
+import createCounter from 'pokedex/src/components/createCounter/createCounter';
+import getPokemons from './components/getPokemons/getPokemons';
+import findPokemon from './components/findPokemon/findPokemon';
+import title from'./components/title/title.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1 class="pokedex-title">Pokedex</h1>
+      <handlerMoreDetails/>
+      <createCounter/>
+      <getPokemons/> 
+      <findPokemon/>
     </div>
   );
 }
