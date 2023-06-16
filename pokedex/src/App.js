@@ -7,11 +7,14 @@ import Title from'./components/Title/Title';
 function App() {
   return (
     <div>
-      <FullInfo/>
-      <ShowMoreBtn/>
-      <PokemonList/> 
-      <SearchPanel/>
       <Title/>
+      <SearchPanel/>
+      <div id="twoSections"> 
+        <PokemonList/>  
+        <FullInfo/>
+      </div>
+      <ShowMoreBtn/>
+      
     </div>
   );
 }
