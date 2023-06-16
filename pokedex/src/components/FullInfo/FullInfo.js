@@ -1,12 +1,13 @@
 import React from 'react';
-import './handlerMoreDetails.css';
+import './FullInfo.css';
 
-function handlerMoreDetails() {
+function FullInfo() {
     const getGridItems = document.querySelectorAll('.grid-item');
 
     getGridItems.forEach(item => {
         item.addEventListener('click', showPokemonDetails )  
     })    
+    return <section id="big-pokemon-section" />
 }
 
 function showPokemonDetails(){
@@ -26,4 +27,4 @@ function showPokemonDetails(){
                           </div>`
 }
 
-export default handlerMoreDetails;
+export default FullInfo;

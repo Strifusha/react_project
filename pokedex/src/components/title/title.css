@@ -1,11 +1,6 @@
-body {
-    padding: 0 150px;
-}
-
 .pokedex-title {
     display: block;
     font-size: 45px;
     text-align: center;
     margin: auto
 }
-

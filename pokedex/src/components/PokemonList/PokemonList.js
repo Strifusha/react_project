@@ -1,5 +1,5 @@
 import React from "react";
-import './getPokemons.css';
+import './PokemonList.css';
 
 getPokemons();
 
@@ -83,4 +83,9 @@ const renderPokemonStats = stats => {
      return statsHtml;
 }
 
-export default getPokemons;
+function PokemonList(){
+    //getPokemons();
+    return   <section id="pokemons-container" /> 
+}
+
+export default PokemonList;
