@@ -8,13 +8,12 @@ function App() {
   return (
     <div>
       <Title/>
-      <SearchPanel/>
+      <SearchPanel text='Search by name'/>
       <div id="twoSections"> 
         <PokemonList/>  
         <FullInfo/>
       </div>
-      <ShowMoreBtn/>
-      
+      <ShowMoreBtn text='Show More' bgColor ='green'/>
     </div>
   );
 }

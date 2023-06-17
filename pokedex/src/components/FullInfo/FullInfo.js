@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './FullInfo.css';
 
 // function handlerMoreDetails() {
@@ -26,8 +26,10 @@ import './FullInfo.css';
 //                           </div>`
 // }
 
-function FullInfo(){
-    return <section id="big-pokemon-section" />
+class FullInfo extends Component {
+    render() {
+        return <section id="big-pokemon-section" />
+    }
 }
 
 export default FullInfo;

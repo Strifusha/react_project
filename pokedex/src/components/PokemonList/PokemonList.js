@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 import './PokemonList.css';
 
 // getPokemons();
@@ -83,8 +83,11 @@ import './PokemonList.css';
 //      return statsHtml;
 // }
 
-function PokemonList(){
-    return   <section id="pokemons-container" /> 
+////
+class PokemonList extends Component {
+    render() {
+        return   <section id="pokemons-container" /> 
+    }
 }
 
-export default PokemonList;
+ export default PokemonList;

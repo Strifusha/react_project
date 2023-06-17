@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import './SearchPanel.css';
 
 // let allPokemonsList = [];
@@ -17,10 +18,15 @@ import './SearchPanel.css';
 
 // searchInput.addEventListener('input', findPokemon);
 
-function SearchPanel(){
+function SearchPanel({text}){
     return (<label>
-        <input type="text" class="reach-panel" placeholder="Search by name" />
+        <input type="text" className="reach-panel" placeholder={text} />
         </label>)
+}
+
+SearchPanel.propTypes = {
+    title: PropTypes.string,
+    description: PropTypes.string
 }
 
 export default SearchPanel;
