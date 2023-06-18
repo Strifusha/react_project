@@ -1,17 +1,19 @@
-import handlerMoreDetails from './components/handlerMoreDetails/handlerMoreDetails';
-import createCounter from 'pokedex/src/components/createCounter/createCounter';
-import getPokemons from './components/getPokemons/getPokemons';
-import findPokemon from './components/findPokemon/findPokemon';
-import title from'./components/title/title.css';
+import FullInfo from './components/FullInfo/FullInfo';
+import ShowMoreBtn from './components/ShowMoreBtn/ShowMoreBtn';
+import PokemonList from './components/PokemonList/PokemonList';
+import SearchPanel from './components/SearchPanel/SearchPanel';
+import Title from'./components/Title/Title';
 
 function App() {
   return (
     <div>
-      <h1 class="pokedex-title">Pokedex</h1>
-      <handlerMoreDetails/>
-      <createCounter/>
-      <getPokemons/> 
-      <findPokemon/>
+      <Title/>
+      <SearchPanel text='Search by name'/>
+      <div id="twoSections"> 
+        <PokemonList/>  
+        <FullInfo/>
+      </div>
+      <ShowMoreBtn text='Show More' bgColor ='green'/>
     </div>
   );
 }

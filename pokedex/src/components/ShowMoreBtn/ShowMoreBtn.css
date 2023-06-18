@@ -4,8 +4,11 @@
     height: 50px;
     margin: 0 100px;
     border-radius: 10px;
-    background-color:#3387db;
     color: #ffffff;
     font-size: 20px;
     text-transform: capitalize;
+}
+
+#loadBtn.green {
+    background: rgb(29, 179, 29);
 }
