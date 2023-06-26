@@ -18,6 +18,7 @@ import './SearchPanel.css';
 
 // searchInput.addEventListener('input', findPokemon);
 
+
 function SearchPanel({text}){
     return (<label>
         <input type="text" className="reach-panel" placeholder={text} />
@@ -28,5 +29,8 @@ SearchPanel.propTypes = {
     title: PropTypes.string,
     description: PropTypes.string
 }
+
+
+
 
 export default SearchPanel;
