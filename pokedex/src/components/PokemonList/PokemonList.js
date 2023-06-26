@@ -83,10 +83,52 @@ import './PokemonList.css';
 //      return statsHtml;
 // }
 
-////
-class PokemonList extends Component {
+class Pokemon extends React.Component {
     render() {
-        return   <section id="pokemons-container" /> 
+        return <li>{this.props.name}</li>;
+    }
+}
+ 
+class PokemonList extends React.Component {
+      constructor(props){
+          super(props);
+          this.state = { 
+              items: this.props.pokemons
+          };
+    //     this.filterList = this.filterList.bind(this);
+     }
+
+    //  filterList(e){
+    //     var filteredList = this.props.pokemons.filter(function(item){
+    //          return item.toLowerCase().search(e.target.value.toLowerCase())!== -1;
+    //     });
+    //     this.setState({items: filteredList});
+    // }
+
+    // render() {
+    //     return(
+    //         <section id="pokemons-container"> 
+    //         <input placeholder="Find" onChange={this.filterList} />
+    //         <ul>
+    //             {this.state.items.map(function(pokemon) {
+    //                 return <Pokemon key = {pokemon} name = {pokemon} /> 
+    //             })}
+    //         </ul>
+    //         </section>
+    //     ) 
+    // } 
+    render(){
+        console.log(this.props)
+        return(
+            <section id="pokemons-container"> 
+                {/* <input placeholder="Find" /> */}
+                <ul>
+                    {this.props.pokemons.map(pokemon => {
+                        return <Pokemon key ={pokemon} name ={pokemon} /> 
+                    })}
+                </ul>
+            </section>
+        )
     }
 }
 
