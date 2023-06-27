@@ -1,6 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import './SearchPanel.css';
+import PokemonList from '../PokemonList/PokemonList.js';
 
 // let allPokemonsList = [];
 // const searchInput = document.querySelector('.reach-panel');
@@ -18,12 +19,13 @@ import './SearchPanel.css';
 
 // searchInput.addEventListener('input', findPokemon);
 
-
 function SearchPanel({text}){
-    return (<label>
-        <input type="text" className="reach-panel" placeholder={text} />
-        </label>)
-}
+        return (<label>
+            <input type="text" className="reach-panel" placeholder={text} />
+            </label>)
+    }
+
+
 
 SearchPanel.propTypes = {
     title: PropTypes.string,
