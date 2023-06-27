@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import './PokemonList.css';
 
 async function getInfoByUrl(shortPokemonList) {
@@ -44,7 +44,7 @@ function json(response){
     return response.json();
 }
 
-class PokemonList extends React.Component {
+class PokemonList extends Component {
     constructor(props){
           super(props);
           this.state = { 

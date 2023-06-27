@@ -1,3 +1,4 @@
+import React, { Components } from 'react';
 import FullInfo from './components/FullInfo/FullInfo';
 import ShowMoreBtn from './components/ShowMoreBtn/ShowMoreBtn';
 import PokemonList from './components/PokemonList/PokemonList';
@@ -6,21 +7,38 @@ import SearchPanel from './components/SearchPanel/SearchPanel';
 
 
 
-function App() {
-  
-  return (
-    <div>
-      {/* <Title/> */}
-      <SearchPanel text='Search by name'/>
+class App extends Components {
 
-      <div id="twoSections"> 
-        <PokemonList/>  
-        {/* <FullInfo/> */}
+  constructor(props){
+    super(props);
+    this.state = { 
+        searchText: ''
+    };
+
+    this.getSearchText = this.getSearchText.bind(this);  
+  }
+  
+  getSearchText = (text) => {
+    this.setState({
+      searchText: text
+    })
+  }
+
+  render() {
+    return (
+      <div>
+        {/* <Title/> */}
+        <SearchPanel text='Search by name' value={this.state.searchText} handleClick={this.getSearchText} />
+  
+        <div id="twoSections"> 
+          <PokemonList value={this.state.searchText}/>  
+          {/* <FullInfo/> */}
+        </div>
+         
+        {/* <ShowMoreBtn text='Show More' bgColor='green'/> */}
       </div>
-       
-      {/* <ShowMoreBtn text='Show More' bgColor='green'/> */}
-    </div>
-  );
+    );
+  }
 }
 
 export default App;
