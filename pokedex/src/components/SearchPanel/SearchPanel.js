@@ -49,3 +49,21 @@ SearchPanel.propTypes = {
 }
 
 export default SearchPanel;
+
+
+
+
+function someText(name, callBack) {
+
+    let newText = 'Some text' + name;
+    
+    callBack(newText)
+
+}
+
+function renderInfo(newText) {
+    console.log(newText)
+}
+
+someText("alex", renderInfo)
+
