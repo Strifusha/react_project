@@ -27,7 +27,7 @@ class SearchPanel extends Component {
 
       handleTextChange(event) {
         const inputText = event.target.value;
-        this.props.handleClick(inputText)
+        this.props.handleClick(inputText);
       }
       
     render() {

@@ -1,4 +1,4 @@
-import React, { Components } from 'react';
+import React, { Component } from 'react';
 import FullInfo from './components/FullInfo/FullInfo';
 import ShowMoreBtn from './components/ShowMoreBtn/ShowMoreBtn';
 import PokemonList from './components/PokemonList/PokemonList';
@@ -7,7 +7,7 @@ import SearchPanel from './components/SearchPanel/SearchPanel';
 
 
 
-class App extends Components {
+class App extends Component {
 
   constructor(props){
     super(props);

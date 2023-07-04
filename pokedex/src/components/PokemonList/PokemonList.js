@@ -4,7 +4,6 @@ import './PokemonList.css';
 async function getInfoByUrl(shortPokemonList) {
   
   let pokemonUrs = shortPokemonList.map(item => item.url)
-    
   const pokemonData = await Promise.all(
 
     pokemonUrs.map(async (url) => {
@@ -26,7 +25,9 @@ function getPokemons(){
         .then(async (data) => {
             const dataPokemons = await getInfoByUrl(data.results);
             this.setState({ items: dataPokemons });
+            //filterPokemons(dataPokemons)  
         })
+        
         .catch(function(err){
             console.log('error -->', err)
         })
@@ -46,16 +47,22 @@ function json(response){
 
 class PokemonList extends Component {
     constructor(props){
-          super(props);
-          this.state = { 
-              items: this.props.pokemons
-            };
+        super(props);
+        this.state = { 
+            items: this.props.pokemons,
+            filterPokemon: this.props.value
+        };
+        
+        //подвязать контекст метода
+        //this.filterPokemons = this.filterPokemons.bind(this);
     }
 
     componentDidMount(){
         const fetchData = getPokemons.bind(this);
         fetchData(); 
         }
+
+     
 
       renderPokemonsTypes(types) {        
             return types.map(type => {
@@ -64,15 +71,26 @@ class PokemonList extends Component {
         );
     } 
 
+    // filterPokemons(filteredPokemon){
+    //     filteredPokemon = this.items.filter((pokemon) => {
+    //                  if (pokemon.name.match(this.props.value)){
+    //                     return <p>{pokemon.name}</p> 
+    //                 } 
+    //     })
+    // }
+        //сonsole.log(this.props.value)
+
+
     render(){
         return(
             <section id="pokemons-container"> 
 
                 {this.state.items && this.state.items.map(pokemon => {
-
+                    //all pokemons with their abil 
+                    //console.log(pokemon)
                     return (<div className='grid-item' data-id={pokemon.id}>
                         <img src={pokemon.sprites.front_default} className='pokemon-img' alt="Pokemon's pic" />
-                        <h3 className='pokemon-name'>{pokemon.name}</h3>
+                        <h3 className='pokemon-name'>{pokemon.name}</h3> 
                         <div>{this.renderPokemonsTypes(pokemon.types)}</div>
                     </div>)
                 })}
