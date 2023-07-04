@@ -2,33 +2,16 @@ import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { StyledInput } from './SearchPanel.style';
 
-import PokemonList from '../PokemonList/PokemonList.js';
-
-// let allPokemonsList = [];
-// const searchInput = document.querySelector('.reach-panel');
-
-// function findPokemon(){
-//     let inputValue = searchInput.value.toLowerCase().trim();
-  
-//     let filteredPokemons = allPokemonsList.filter((pokemon) => {
-//         if (pokemon.name.match(inputValue)){
-//             return pokemon  
-//         } 
-//     })
-//     renderPokemons(filteredPokemons);
-// }
-
-
 class SearchPanel extends Component {
     constructor(props) {
         super(props);
         this.handleTextChange = this.handleTextChange.bind(this);
-      }
+    }
 
-      handleTextChange(event) {
+    handleTextChange(event) {
         const inputText = event.target.value;
         this.props.handleClick(inputText)
-      }
+    }
       
     render() {
         return (<label>
@@ -49,21 +32,4 @@ SearchPanel.propTypes = {
 }
 
 export default SearchPanel;
-
-
-
-
-function someText(name, callBack) {
-
-    let newText = 'Some text' + name;
-    
-    callBack(newText)
-
-}
-
-function renderInfo(newText) {
-    console.log(newText)
-}
-
-someText("alex", renderInfo)
 

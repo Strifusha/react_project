@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+//import PropTypes from 'prop-types';
 import './ShowMoreBtn.css';
 
 // let counter = createCounter();
@@ -15,16 +15,33 @@ import './ShowMoreBtn.css';
 // } 
 // handleLoadBtn.addEventListener('click', () => getPokemons(counter()));
 
-function ShowMoreBtn ({text, bgColor}) {
-    return (<button id = "loadBtn" 
-                className={bgColor}>
-                {text}
-            </button>)
-}
+// function ShowMoreBtn ({text, bgColor}) {
+//     return (<button id = "loadBtn" 
+//                 className={bgColor}>
+//                 {text}
+//             </button>)
+// }
 
-ShowMoreBtn.propTypes = {
-    text: PropTypes.string.isRequired,
-    bgColor: PropTypes.string
-};
+// ShowMoreBtn.propTypes = {
+//     text: PropTypes.string.isRequired,
+//     bgColor: PropTypes.string
+// };
+
+class ShowMoreBtn extends Component{
+   
+    showMorePokemons(event){
+        console.log('helo')
+    }
+
+    render(){
+        return (<button id = "loadBtn" 
+            className={this.props.bgColor}>
+            {this.props.text}
+            {/* {onClick={showMorePokemons}} */}
+            </button>)
+    }
+        
+
+}
 
 export default ShowMoreBtn;
