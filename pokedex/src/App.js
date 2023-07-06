@@ -4,7 +4,7 @@ import ShowMoreBtn from './components/ShowMoreBtn/ShowMoreBtn';
 import PokemonList from './components/PokemonList/PokemonList';
 import SearchPanel from './components/SearchPanel/SearchPanel';
 import Title from'./components/Title/Title';
-import { getPokemons } from '/Users/kate/Desktop/REACT PROJECT/pokedex/src/utils/getPokemons.js'
+import { getPokemons } from './utils/getPokemons'
 
 class App extends Component {
 

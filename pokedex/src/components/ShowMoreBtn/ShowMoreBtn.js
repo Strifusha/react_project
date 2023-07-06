@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-//import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './ShowMoreBtn.css';
 
 // let counter = createCounter();
@@ -22,11 +22,6 @@ import './ShowMoreBtn.css';
 //             </button>)
 // }
 
-// ShowMoreBtn.propTypes = {
-//     text: PropTypes.string.isRequired,
-//     bgColor: PropTypes.string
-// };
-
 class ShowMoreBtn extends Component{
    
     showMorePokemons(event){
@@ -43,5 +38,10 @@ class ShowMoreBtn extends Component{
         
 
 }
+
+ShowMoreBtn.propTypes = {
+    text: PropTypes.string.isRequired,
+    bgColor: PropTypes.string
+};
 
 export default ShowMoreBtn;
