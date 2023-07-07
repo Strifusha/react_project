@@ -1,4 +1,4 @@
-#big-pokemon-section {
+#pokemonFullInfo {
     position: sticky;
     top: 10%;
     width: 20%;
@@ -8,19 +8,22 @@
     border: 2px solid;
     text-align: center;
     text-transform: capitalize; 
-    margin: 150px; 
-}
-
-#pokemonFullInfo {
     display: grid;
     grid-template-columns: auto auto;
     margin: auto;
     padding: 5px;
+
+}
+
+.pokemonName{
+    margin: auto;
+    text-align: center;
+    min-width: 70%;
 }
 
 #pokemon-big-img{ 
     border-style:solid;
     border-width: 2px;
-    width: 50%;
+    width: 70%;
     margin: auto;    
 }

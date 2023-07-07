@@ -8,7 +8,6 @@ class PokemonList extends Component {
         return(
             <section id="pokemons-container"> 
                 {this.props.pokemons && this.props.pokemons.map(pokemon => {
-
                     return (<div className='grid-item' data-id={pokemon.id} onClick={() => {
                         this.props.handleMoreInfo(pokemon.id)
                     }}>
