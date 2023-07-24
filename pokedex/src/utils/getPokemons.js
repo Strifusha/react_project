@@ -23,6 +23,7 @@ async function getInfoByUrl(shortPokemonList) {
           .then(async (data) => {
               const dataPokemons = await getInfoByUrl(data.results);
               this.setState({ items: dataPokemons });
+              //console.log(dataPokemons);
           })
           .catch(function(err){
               console.log('error -->', err)
