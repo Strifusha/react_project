@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import FullInfo from './components/FullInfo/FullInfo';
-import ShowMoreBtn from './components/ShowMoreBtn/ShowMoreBtn';
 import PokemonList from './components/PokemonList/PokemonList';
 import SearchPanel from './components/SearchPanel/SearchPanel';
 import Title from'./components/Title/Title';
-//import Header from'./components/Header/Header';
-import IdInput from './components/IdInput/IdInput';
-import ShowDetailsBtn from './components/ShowDetailsBtn/ShowDetailsBtn';
+import InputByDetailsInfo from './components/InputByDetailsInfo/InputByDetailsInfo';
+import Button from './components/Button/Button';
 import { getPokemons } from './utils/getPokemons'
 
 class App extends Component {
@@ -17,7 +15,8 @@ class App extends Component {
         searchText: '',
         searchId: '',
         items: [],
-        pokemonDetails: null
+        pokemonDetails: null,
+        offset: 0,
     };
 
     this.getSearchText = this.getSearchText.bind(this);  
@@ -26,7 +25,8 @@ class App extends Component {
 
   componentDidMount(){
     const fetchData = getPokemons.bind(this);
-    fetchData(); 
+    fetchData(0); 
+    this.setState({offset: 12})
   } 
 
   getSearchText = (text) => {
@@ -41,50 +41,45 @@ class App extends Component {
     })
   }
 
-  filteredPokemons = () => {
-    return this.state.items.filter((pokemon) => {
-      if (pokemon.name.match(this.state.searchText)){
-          return pokemon  
-        } 
-      }
-    )
-  }
-
-  //  idMatchPokemons = () => {
-    
-  //    this.state.items.filter((pokemon) => {
-  //       if(this.state.searchId == pokemon.id){
-  //        return this.state.searchId
-  //        //console.log(pokemon, this.state.searchId), pokemon;
-  //    }
-  //  })
-  //  }
-  
+  filteredPokemons = () => this.state.items.filter((pokemon) => pokemon.name.match(this.state.searchText) && pokemon)
 
   handleMoreInfo = (id) => {
     const currentPokemonDetails = this.state.items.find(pokemon => pokemon.id === +id);
     this.setState({
       pokemonDetails: currentPokemonDetails
     })
-    console.log('pokemonDetails', this.state.pokemonDetails)
+  }
+
+  goToPokemonDetails = () => {
+
+  }
+
+  handleLoadMore = () => {
+    const fetchData = getPokemons.bind(this);
+    fetchData(this.state.offset); 
+
+   this.setState({
+    offset: this.state.offset + 12
+   })
   }
 
   render() {
+    let { searchText, searchId, pokemonDetails } = this.state;
+
     return (
       <div>
         <Title/>
         {/* <Header text={this.state.searchText}/> */}
-        <SearchPanel text='Search by name' value={this.state.searchText} handleClick={this.getSearchText} />
-        <IdInput  text='Search by id' value={this.state.searchId} handleClick={this.getSearchId}/>
-        <ShowDetailsBtn text = 'Details' pokemonsId = {this.state.searchId} 
-                        pokemons={this.filteredPokemons()}/>
+        <SearchPanel text='Search by name' value={searchText} handleClick={this.getSearchText} />
+        <InputByDetailsInfo searchId={searchId} handleClick={this.getSearchId}/>
+        <Button text='Details' pokemonsId={searchId} handleClick={this.goToPokemonDetails} />
 
         <div id="twoSections"> 
           <PokemonList pokemons={this.filteredPokemons()} handleMoreInfo={this.handleMoreInfo}/>  
-          { this.state.pokemonDetails && <FullInfo pokemonDetails={this.state.pokemonDetails}/> }
+          { pokemonDetails && <FullInfo pokemonDetails={pokemonDetails}/> }
         </div>
   
-        <ShowMoreBtn text='Show More' bgColor='green' showMoreInfo={this.handleMoreInfo}/>
+        <Button text='Show More' bgColor='green' handleClick={this.handleLoadMore}/>
       </div>
     );
   }

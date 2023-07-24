@@ -1,8 +1,16 @@
-#details{
+#btn {
     background-color:aqua;
     display: block;
     border-radius: 10px;
     width: 100px;
     height: 40px;
     font-size: 15px;
+}
+
+.green {
+    background: rgb(29, 179, 29);
+}
+
+.gray {
+    background: #ccc;
 }

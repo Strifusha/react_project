@@ -24,8 +24,8 @@ class FullInfo extends Component {
                 <img src={currentPokemonDetails.sprites.front_shiny}  
                     id="pokemon-big-img" 
                     alt={currentPokemonDetails.name} />
-                <span class='spanInfo'>Type</span>
-                <span class='spanInfo'>{renderPokemonsTypes(currentPokemonDetails.types)}</span>
+                <span className='spanInfo'>Type</span>
+                <span className='spanInfo'>{renderPokemonsTypes(currentPokemonDetails.types)}</span>
                 {renderPokemonsInfo(currentPokemonDetails)}
             </div>
     </>

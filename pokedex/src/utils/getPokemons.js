@@ -14,15 +14,20 @@ async function getInfoByUrl(shortPokemonList) {
     return pokemonData
   }
   
-  export function getPokemons(){
-      let url = `https://pokeapi.co/api/v2/pokemon/?limit=12&offset=0`;
+  export function getPokemons(offset){
+      let url = `https://pokeapi.co/api/v2/pokemon/?limit=12&offset=${offset}`;
           
           fetch(url) 
           .then(responseStatus)
           .then(json)
           .then(async (data) => {
               const dataPokemons = await getInfoByUrl(data.results);
-              this.setState({ items: dataPokemons });
+              this.setState((prev) => {
+                return { 
+                    ...prev,
+                    items: [...prev.items, ...dataPokemons]
+                 }
+              });
               //console.log(dataPokemons);
           })
           .catch(function(err){
