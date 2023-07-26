@@ -10,7 +10,6 @@ class PokemonList extends Component {
                 {this.props.pokemons && this.props.pokemons.map(pokemon => {
                     return (<div className='grid-item' key={pokemon.id} data-id={pokemon.id} onClick={() => {
                         this.props.handleMoreInfo(pokemon.id)
-                        //console.log(pokemon.id)
                         }}>
                         <img src={pokemon.sprites.front_default} className='pokemon-img' alt="Pokemon's pic" />
                         <h3 className='pokemon-name'>{pokemon.name}</h3>
