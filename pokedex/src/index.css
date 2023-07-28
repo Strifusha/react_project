@@ -18,3 +18,12 @@ body {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 } */
+
+.dark-content {
+  background: #000;
+  color: #fff;
+}
+.light-content {
+  background: #fff;
+  color: #000;
+}

@@ -5,7 +5,7 @@ import './Title.css';
 function Title ({theme}) {
     return <>
     <h1 className="pokedex-title">Pokedex</h1>
-    {/* <Tools theme={theme} /> */}
+    <Tools theme={theme} />
     </>
 }
 
