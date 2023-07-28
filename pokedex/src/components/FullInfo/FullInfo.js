@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import { renderPokemonsTypes } from '../../utils/renderPokemonTypes';
 import './FullInfo.css';
+import { useParams } from 'react-router-dom';
+
 
 const renderPokemonsInfo = (pokemon) => {
 
@@ -14,22 +16,24 @@ const renderPokemonsInfo = (pokemon) => {
 }
 
 
-class FullInfo extends Component {
+const FullInfo = (props) => {
     
-    render() {
-        const currentPokemonDetails = this.props.pokemonDetails;
+        const currentPokemonDetails = props.pokemonDetails;
+        const { id } = useParams();
+        console.log(id)
         return <>   
             <div id='pokemonFullInfo'>
-                <h2 className='pokemonName'>{currentPokemonDetails.name}</h2>
+                tesrt
+                {/* <h2 className='pokemonName'>{currentPokemonDetails.name}</h2>
                 <img src={currentPokemonDetails.sprites.front_shiny}  
                     id="pokemon-big-img" 
                     alt={currentPokemonDetails.name} />
                 <span className='spanInfo'>Type</span>
                 <span className='spanInfo'>{renderPokemonsTypes(currentPokemonDetails.types)}</span>
-                {renderPokemonsInfo(currentPokemonDetails)}
+                {renderPokemonsInfo(currentPokemonDetails)} */}
             </div>
     </>
     }
-}
+
 
 export default FullInfo;
