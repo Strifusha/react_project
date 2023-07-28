@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { renderPokemonsTypes } from '../../utils/renderPokemonTypes';
 import './FullInfo.css';
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom"
 
 
 const renderPokemonsInfo = (pokemon) => {
@@ -23,7 +23,7 @@ const FullInfo = (props) => {
         console.log(id)
         return <>   
             <div id='pokemonFullInfo'>
-                tesrt
+            <h1>Pokemon {id}</h1>
                 {/* <h2 className='pokemonName'>{currentPokemonDetails.name}</h2>
                 <img src={currentPokemonDetails.sprites.front_shiny}  
                     id="pokemon-big-img" 
