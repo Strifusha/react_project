@@ -7,6 +7,7 @@ import InputByDetailsInfo from '../InputByDetailsInfo/InputByDetailsInfo';
 import Button from '../Button/Button'; 
 
 import { getPokemons } from '../../utils/getPokemons';
+import { ThemeContext } from '../ThemeContextProvider/ThemeContextProvider'
 
 class PokemonWrapper  extends Component {
 
@@ -70,18 +71,26 @@ class PokemonWrapper  extends Component {
       }
 
     render() {
+        
         let { searchText, searchId, pokemonDetails, pokemonDetailsById } = this.state;
 
         return <>
-          <SearchPanel text='Search by name' value={searchText} handleClick={this.getSearchText} />
-          <InputByDetailsInfo searchId={searchId} handleClick={this.getSearchId} />
-          <Button text='Details' pokemonsId={searchId} handleClick={this.goToPokemonDetails} />
-          <div id="twoSections"> 
-            <PokemonList pokemons={this.filteredPokemons()} handleMoreInfo={this.handleMoreInfo}/>  
-            { pokemonDetails && <FullInfo pokemonDetails={pokemonDetails}/> }
-          </div>
-          <Button text='Show More' bgColor='green' handleClick={this.handleLoadMore}/>
+        <ThemeContext.Consumer>
+        {({ isDarkMode }) => (
+            <div className={isDarkMode ? 'dark-content' : 'light-content'}>
         
+            <SearchPanel text='Search by name' value={searchText} handleClick={this.getSearchText} />
+            <InputByDetailsInfo searchId={searchId} handleClick={this.getSearchId} />
+            <Button text='Details' pokemonsId={searchId} handleClick={this.goToPokemonDetails} />
+            <div id="twoSections"> 
+                <PokemonList pokemons={this.filteredPokemons()} handleMoreInfo={this.handleMoreInfo}/>  
+                { pokemonDetails && <FullInfo pokemonDetails={pokemonDetails}/> }
+            </div>
+            <Button text='Show More' bgColor='green' handleClick={this.handleLoadMore}/>
+
+            </div>
+        )}
+        </ThemeContext.Consumer>
         </>
     }
 }   
