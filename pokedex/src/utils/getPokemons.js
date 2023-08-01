@@ -28,7 +28,6 @@ async function getInfoByUrl(shortPokemonList) {
                     items: [...prev.items, ...dataPokemons]
                  }
               });
-              //console.log(dataPokemons);
           })
           .catch(function(err){
               console.log('error -->', err)

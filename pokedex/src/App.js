@@ -21,7 +21,7 @@ class App extends Component {
 
       <Routes>
         <Route path="/" element={<PokemonWrapper />} />
-        <Route path="/pokemon/:id" element={<FullInfo />} />
+        <Route path="/pokemon/:id" element={<FullInfo />}/>
       </Routes>
       </>
     );
