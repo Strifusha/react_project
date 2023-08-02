@@ -1,7 +1,9 @@
-import React, {Component} from 'react';
-import { renderPokemonsTypes } from '../../utils/renderPokemonTypes';
-import './FullInfo.css';
+import React, { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom"
+
+import { renderPokemonsTypes } from '../../utils/renderPokemonTypes';
+import getInfoById from '../../utils/getInfoById';
+import './FullInfo.css';
 
 
 const renderPokemonsInfo = (pokemon) => {
@@ -15,51 +17,24 @@ const renderPokemonsInfo = (pokemon) => {
   
 }
 
-const showInfo = (pokemon) => {
-    console.log(pokemon.name);
-    return  <h2 className='pokemonName'>{pokemon.name}</h2> 
-}
-
-const getPokemonInfo = (id) => {
-    let url = `https://pokeapi.co/api/v2/pokemon/${id}/`
-    fetch(url)
-    .then(responseStatus)
-    .then(json)
-    .then(async (pokemon) => {
-        const infoPokemon = pokemon
-       
-        return infoPokemon;
-    })
-    .catch(function(err){
-        console.log('error -->', err);
-    })
-
-    function responseStatus(response){
-            if(response.status !== 200){
-                return Promise.reject(new Error(response.statusText))
-            }
-            return Promise.resolve(response);
-        }
-
-    function json(response){
-            return response.json();
-        }
-}
-
 const FullInfo = (props) => {
-    const currentPokemonDetails = props.pokemonDetails;
     const { id } = useParams();
+    const [pokemon, setPokemon] = useState()
 
-    getPokemonInfo(id);
-   
+    useEffect(() => {
+        async function fetchData() {
+            const pokeminDetails = await getInfoById(id);
+            console.log(pokeminDetails)
+            setPokemon(pokeminDetails)
+        }
+        fetchData();
+        
+    }, [id])
     
-        return <>   
+    return <>   
             <div id='pokemonFullInfo'>
             <h1>Pokemon {id}</h1>
-            <div>
-            {showInfo(id)}
-            </div>
-            {/* <h2 className='pokemonName'>{showInfo()}</h2> */}
+            <h2 className='pokemonName'>{pokemon?.name}</h2>
                 {/* <img src={currentPokemonDetails.sprites.front_shiny}  
                     id="pokemon-big-img" 
                     alt={currentPokemonDetails.name} />
@@ -67,7 +42,7 @@ const FullInfo = (props) => {
                 // <span className='spanInfo'>{renderPokemonsTypes(currentPokemonDetails.types)}</span>
                 {renderPokemonsInfo(currentPokemonDetails)} */}
             </div>
-    </>
+        </>
     
 }
 

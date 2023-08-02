@@ -84,7 +84,7 @@ class PokemonWrapper  extends Component {
             <Button text='Details' pokemonsId={searchId} handleClick={this.goToPokemonDetails} />
             <div id="twoSections"> 
                 <PokemonList pokemons={this.filteredPokemons()} handleMoreInfo={this.handleMoreInfo}/>  
-                { pokemonDetails && <FullInfo pokemonDetails={pokemonDetails}/> }
+                {/* { pokemonDetails && <ShowShortInfo pokemonDetails={pokemonDetails} /> } */}
             </div>
             <Button text='Show More' bgColor='green' handleClick={this.handleLoadMore}/>
 
