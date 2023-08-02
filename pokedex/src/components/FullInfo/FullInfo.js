@@ -27,7 +27,6 @@ const getPokemonInfo = (id) => {
     .then(json)
     .then(async (pokemon) => {
         const infoPokemon = pokemon
-        // console.log('infoPokemon-->', infoPokemon);
        
         return infoPokemon;
     })
@@ -58,7 +57,7 @@ const FullInfo = (props) => {
             <div id='pokemonFullInfo'>
             <h1>Pokemon {id}</h1>
             <div>
-                {showInfo(id)}
+            {showInfo(id)}
             </div>
             {/* <h2 className='pokemonName'>{showInfo()}</h2> */}
                 {/* <img src={currentPokemonDetails.sprites.front_shiny}  
