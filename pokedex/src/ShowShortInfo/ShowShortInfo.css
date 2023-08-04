@@ -1,0 +1,33 @@
+#shortPokemonInfo {
+    text-transform: capitalize;
+    text-align: center;
+    border: 2px solid;
+    position: sticky;
+    top: 100px;
+    width: 400px;
+    height: 550px;
+    padding: 15px;
+    min-width: 200px;
+}
+
+#pokemonName{
+    margin: 10px;
+}
+
+.pokemons-img{
+    height: 50%;
+    width: 60%;
+}
+
+.spanType{
+    display: flex;
+    width: auto;
+    margin: 15px;
+}
+
+.spanAbility{
+    width: 70%;
+    padding: 5px;
+    text-align: center;
+    margin: 5px;
+}

@@ -1,7 +1,7 @@
 #pokemons-container {
     display: grid;
     grid-template-columns: auto auto auto;
-    margin: 100px;
+    margin-right: 100px;
     width: 40%;
     min-width: 550px;
 }
@@ -35,13 +35,6 @@
     border-radius: 5px; 
     text-transform: capitalize;
     background-color: gray;  
-}
-
-.spanInfo {
-    width: 70%;
-    border: 1px solid;
-    padding: 15px;
-    text-align: center;
 }
 
 .ability_grass {

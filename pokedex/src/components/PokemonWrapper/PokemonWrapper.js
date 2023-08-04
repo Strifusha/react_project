@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-
-import FullInfo from '../FullInfo/FullInfo';
+import ShowShortInfo from "../../ShowShortInfo/ShowShortInfo";
 import PokemonList from '../PokemonList/PokemonList';
 import SearchPanel from '../SearchPanel/SearchPanel';
 import InputByDetailsInfo from '../InputByDetailsInfo/InputByDetailsInfo';
 import Button from '../Button/Button'; 
-
+import FullInfo from "../FullInfo/FullInfo";
+import getInfoById from "../../utils/getInfoById";
 import { getPokemons } from '../../utils/getPokemons';
 import { ThemeContext } from '../ThemeContextProvider/ThemeContextProvider'
 
@@ -59,6 +59,7 @@ class PokemonWrapper  extends Component {
         this.setState({
           pokemonDetailsById: pokemonDetailsById
         })
+        console.log(pokemonDetailsById);
       }
     
       handleLoadMore = () => {
@@ -79,14 +80,15 @@ class PokemonWrapper  extends Component {
         {({ isDarkMode }) => (
             <div className={isDarkMode ? 'dark-content' : 'light-content'}>
         
-            <SearchPanel text='Search by name' value={searchText} handleClick={this.getSearchText} />
+            {/* <SearchPanel text='Search by name' value={searchText} handleClick={this.getSearchText} /> */}
             <InputByDetailsInfo searchId={searchId} handleClick={this.getSearchId} />
             <Button text='Details' pokemonsId={searchId} handleClick={this.goToPokemonDetails} />
+
             <div id="twoSections"> 
                 <PokemonList pokemons={this.filteredPokemons()} handleMoreInfo={this.handleMoreInfo}/>  
-                {/* { pokemonDetails && <ShowShortInfo pokemonDetails={pokemonDetails} /> } */}
+                { pokemonDetails && <ShowShortInfo pokemonDetails={pokemonDetails} /> }
             </div>
-            <Button text='Show More' bgColor='green' handleClick={this.handleLoadMore}/>
+            {/* <Button text='Show More' bgColor='green' handleClick={this.handleLoadMore}/> */}
 
             </div>
         )}
