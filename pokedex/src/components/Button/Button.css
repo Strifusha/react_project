@@ -5,6 +5,11 @@
     width: 100px;
     height: 40px;
     font-size: 15px;
+    margin: 30px 0;
+}
+
+#btn:hover{
+    background-color:#5f95f9;
 }
 
 .green {
