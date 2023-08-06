@@ -14,7 +14,7 @@ class App extends Component {
       <nav>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/" className='pokemon-Link'>Home</Link>
           </li>
         </ul>
       </nav>

@@ -2,12 +2,15 @@ body {
   padding: 0 150px;
 }
 
+nav {
+  height: 25px;
+}
+
 #twoSections {
   display: flex;
 }
 
 #shortPokemonInfo{
-  /* display: flex; */
   justify-content: center;
   overflow: auto;
 }
@@ -20,3 +23,19 @@ body {
   background: #fff;
   color: #000;
 }
+
+li {
+  list-style-type: none;
+  font-size: 18px;
+}
+
+.pokemon-Link{
+  text-decoration: none;
+}
+
+.pokemon-Link:hover {
+  color: #5f95f9;
+  font-size: 20px;
+  text-decoration: none;
+}
+

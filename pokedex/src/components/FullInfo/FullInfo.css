@@ -5,10 +5,11 @@
     top: 10%;
     width: 45%;
     border: 2px solid #fff;
+    border-radius: 20px;
     text-transform: capitalize; 
     margin: auto;
     min-width: 300px;
-    background: linear-gradient(to top, #de5210, #73f0b5)
+    background: linear-gradient(to top, #6c54e6, #73f0b5)
 }
 
 .pokemonName{
@@ -25,8 +26,10 @@
 
 .pokemon-big-img{ 
     border: 2px solid #fff;
+    border-radius: 10px;
     max-width: 50%; 
     margin: 10px;   
+    box-shadow: 0 4px 30px #9292c9;
 }
 
 .spanInfo {

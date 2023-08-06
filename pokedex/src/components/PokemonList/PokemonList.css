@@ -7,12 +7,18 @@
 }
 
 .grid-item {
-    margin: center;
+    margin: 5px;
     padding: 20px;
     width: 150px;
     height: 170px;
-    border-style: solid;
-    border-width: 2px;
+    border: 2px solid;
+    border-radius:10px;
+}
+
+.grid-item:hover {
+    background-color:#dcdcf7;
+    transform: scale(1.1);
+    border: rgb(96, 48, 240) 1px solid;
 }
 
 .pokemon-img {
@@ -30,8 +36,7 @@
     margin: 5px;
     padding: 5px;
     text-align: center;
-    border-style:solid;
-    border-width: 1px;
+    border: 1px solid;
     border-radius: 5px; 
     text-transform: capitalize;
     background-color: gray;  
