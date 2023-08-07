@@ -18,7 +18,6 @@ class PokemonWrapper  extends Component {
             searchId: '',
             items: [],
             pokemonDetails: null,
-            pokemonDetailsById: null,
             offset: 0,
         };
     
@@ -54,14 +53,6 @@ class PokemonWrapper  extends Component {
         //currentPokemonDetails - полная инфа про покемона (справа)
       }
     
-      goToPokemonDetails = () => {
-      const pokemonDetailsById = this.state.items.find(pokemon => pokemon.id === +this.state.searchId);
-        this.setState({
-          pokemonDetailsById: pokemonDetailsById
-        })
-        console.log(pokemonDetailsById);
-      }
-    
       handleLoadMore = () => {
         const fetchData = getPokemons.bind(this);
         fetchData(this.state.offset); 
@@ -73,22 +64,22 @@ class PokemonWrapper  extends Component {
 
     render() {
         
-        let { searchText, searchId, pokemonDetails, pokemonDetailsById } = this.state;
+        let { searchText, searchId, pokemonDetails } = this.state;
 
         return <>
         <ThemeContext.Consumer>
         {({ isDarkMode }) => (
             <div className={isDarkMode ? 'dark-content' : 'light-content'}>
         
-            {/* <SearchPanel text='Search by name' value={searchText} handleClick={this.getSearchText} /> */}
-            <InputByDetailsInfo searchId={searchId} handleClick={this.getSearchId} />
-            <Button text='Details' pokemonsId={searchId} handleClick={this.goToPokemonDetails} />
+            <SearchPanel text='Search by name' value={searchText} handleClick={this.getSearchText} />
+            {/* <InputByDetailsInfo searchId={searchId} handleClick={this.getSearchId} /> */}
+            {/* <Button text='Details' pokemonsId={searchId} handleClick={this.goToPokemonDetails} /> */}
 
             <div id="twoSections"> 
                 <PokemonList pokemons={this.filteredPokemons()} handleMoreInfo={this.handleMoreInfo}/>  
                 { pokemonDetails && <ShowShortInfo pokemonDetails={pokemonDetails} /> }
             </div>
-            {/* <Button text='Show More' bgColor='green' handleClick={this.handleLoadMore}/> */}
+            <Button text='Show More' bgColor='green' handleClick={this.handleLoadMore}/>
 
             </div>
         )}

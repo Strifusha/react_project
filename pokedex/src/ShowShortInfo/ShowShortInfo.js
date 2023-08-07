@@ -1,12 +1,15 @@
 import React from "react";
+import { Route, Routes, Link } from "react-router-dom";
 import { renderPokemonAbilities } from "../utils/renderPokemonAbilities";
+import FullInfo from "../components/FullInfo/FullInfo";
 import './ShowShortInfo.css'
 
 import { renderPokemonsTypes } from "../utils/renderPokemonTypes";
 
 function ShowShortInfo(props){
     const pokemonInfo = props.pokemonDetails
-    // console.log(pokemonInfo);
+    const id = pokemonInfo.id;
+    // console.log(pokemonId);
     return <div id="shortPokemonInfo">
         <h2 id='pokemonName'>{pokemonInfo.name}</h2>
 
@@ -19,6 +22,12 @@ function ShowShortInfo(props){
 
         <span className="spanType">Ability</span>
         {renderPokemonAbilities(pokemonInfo.abilities)}
+
+        <ul>
+            <li>
+               <Link to={`/pokemon/${id}`} className='pokemon-Link details'>Details</Link>
+            </li>
+        </ul>
 
     </div>
 }
